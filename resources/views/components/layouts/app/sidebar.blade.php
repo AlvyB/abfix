@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
@@ -12,8 +12,17 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboards') }}</flux:navlist.item>
+                <flux:navlist.group heading="Platforma" class="grid">
+                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>Pagrindinis</flux:navlist.item>
+                </flux:navlist.group>
+                <flux:navlist.group heading="Projektai" class="grid">
+                    <flux:navlist.item icon="plus" :href="route('app.projects.create')" :current="request()->routeIs('app.projects.create')" wire:navigate>Naujas projektas</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('app.projects')" :current="request()->routeIs('app.projects')" wire:navigate>Projektų sąrašas</flux:navlist.item>
+                </flux:navlist.group>
+                <flux:navlist.group heading="Nustatymai" class="grid">
+                    <flux:navlist.item icon="building-storefront" :href="route('settings.company')" :current="request()->routeIs('settings.company')" wire:navigate>Įmonės duomenys</flux:navlist.item>
+                    <flux:navlist.item icon="document-text" :href="route('settings.pdf')" :current="request()->routeIs('settings.pdf')" wire:navigate>PDF šablonai</flux:navlist.item>
+                    <flux:navlist.item icon="cog-6-tooth" :href="route('settings.system')" :current="request()->routeIs('settings.system')" wire:navigate>Sistema ir tema</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
@@ -53,7 +62,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+                        <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>Nustatymai</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
@@ -61,7 +70,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full" data-test="logout-button">
-                            {{ __('Log Out') }}
+                            Atsijungti
                         </flux:menu.item>
                     </form>
                 </flux:menu>
@@ -103,7 +112,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+                        <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>Nustatymai</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
@@ -111,7 +120,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full" data-test="logout-button">
-                            {{ __('Log Out') }}
+                            Atsijungti
                         </flux:menu.item>
                     </form>
                 </flux:menu>
