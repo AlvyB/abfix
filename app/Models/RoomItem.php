@@ -12,11 +12,14 @@ class RoomItem extends Model
         'quantity',
         'unit',
         'unit_price',
+        'is_completed',
+        'comment',
     ];
 
     protected $casts = [
         'quantity' => 'float',
         'unit_price' => 'float',
+        'is_completed' => 'boolean',
     ];
 
     public function room(): BelongsTo

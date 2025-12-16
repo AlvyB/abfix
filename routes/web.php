@@ -5,10 +5,16 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 use App\Models\Project;
 use App\Http\Controllers\ProjectPdfController;
+use App\Http\Controllers\Auth\GoogleController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 })->name('home');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google.redirect');
+    Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('auth.google.callback');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

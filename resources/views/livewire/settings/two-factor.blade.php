@@ -155,24 +155,24 @@ new class extends Component {
     {
         if ($this->twoFactorEnabled) {
             return [
-                'title' => __('Two-Factor Authentication Enabled'),
-                'description' => __('Two-factor authentication is now enabled. Scan the QR code or enter the setup key in your authenticator app.'),
-                'buttonText' => __('Close'),
+                'title' => 'Dviguba autentifikacija įjungta',
+                'description' => 'Dabar dviguba autentifikacija aktyvi. Nuskenuok QR kodą arba suvesk raktą savo autentifikavimo programėlėje.',
+                'buttonText' => 'Uždaryti',
             ];
         }
 
         if ($this->showVerificationStep) {
             return [
-                'title' => __('Verify Authentication Code'),
-                'description' => __('Enter the 6-digit code from your authenticator app.'),
-                'buttonText' => __('Continue'),
+                'title' => 'Patvirtink kodą',
+                'description' => 'Įvesk 6 skaitmenų kodą iš autentifikavimo programėlės.',
+                'buttonText' => 'Tęsti',
             ];
         }
 
         return [
-            'title' => __('Enable Two-Factor Authentication'),
-            'description' => __('To finish enabling two-factor authentication, scan the QR code or enter the setup key in your authenticator app.'),
-            'buttonText' => __('Continue'),
+            'title' => 'Įjungti dvigubą autentifikaciją',
+            'description' => 'Norėdamas įjungti, nuskenuok QR kodą arba suvesk raktą autentifikavimo programėlėje.',
+            'buttonText' => 'Tęsti',
         ];
     }
 } ?>
@@ -181,18 +181,18 @@ new class extends Component {
     @include('partials.settings-heading')
 
     <x-settings.layout
-        :heading="__('Two Factor Authentication')"
-        :subheading="__('Manage your two-factor authentication settings')"
+        heading="Dviguba autentifikacija"
+        subheading="Tvarkyk dviejų žingsnių apsaugos nustatymus"
     >
         <div class="flex flex-col w-full mx-auto space-y-6 text-sm" wire:cloak>
             @if ($twoFactorEnabled)
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <flux:badge color="green">{{ __('Enabled') }}</flux:badge>
+                        <flux:badge color="green">Įjungta</flux:badge>
                     </div>
 
                     <flux:text>
-                        {{ __('With two-factor authentication enabled, you will be prompted for a secure, random pin during login, which you can retrieve from the TOTP-supported application on your phone.') }}
+                        Su įjungta dviguba autentifikacija prisijungdami turėsite įvesti atsitiktinį PIN iš savo TOTP programėlės.
                     </flux:text>
 
                     <livewire:settings.two-factor.recovery-codes :$requiresConfirmation/>

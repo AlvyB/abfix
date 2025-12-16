@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+:root {
+    --bg: #05060f;
+    --bg-soft: #0c1018;
+    --panel: #0f1624;
+    --panel-2: #0b0f1d;
+    --border: #1a2133;
+    --text: #e8edf7;
+    --muted: #cfd9e8;
+    --input-bg: #0f1624;
+    --input-border: #1f2940;
+    --primary: #6a6dff;
+    --primary-strong: #5f8bff;
+    --primary-contrast: #0b1221;
+    --primary-glow: 0 20px 60px rgba(106, 109, 255, 0.22);
+    --card-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --nav-height: 72px;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    html {
+        color: var(--text);
+        background: var(--bg);
+    }
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--border);
+    }
+}

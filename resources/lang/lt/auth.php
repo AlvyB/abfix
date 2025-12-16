@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'login_title' => 'Prisijungimas',
+    'login_subtitle' => 'Įvesk prisijungimo duomenis ir tęsk darbą.',
+    'register_title' => 'Registracija',
+    'register_subtitle' => 'Sukurk paskyrą ir gauk ankstyvą prieigą.',
+    'email' => 'El. paštas',
+    'password' => 'Slaptažodis',
+    'password_confirmation' => 'Pakartokite slaptažodį',
+    'name' => 'Vardas ir pavardė',
+    'login_button' => 'Prisijungti',
+    'register_button' => 'Sukurti paskyrą',
+    'forgot_password' => 'Pamiršai slaptažodį?',
+    'no_account' => 'Neturi paskyros?',
+    'have_account' => 'Jau turi paskyrą?',
+    'register' => 'Registruotis',
+    'login' => 'Prisijungti',
+    'remember' => 'Prisiminti mane',
+    'brand_tagline' => 'Sąmatos ir pasiūlymai',
+    'footer_note' => 'Sukurta Sumify komandai',
+    'or' => 'arba',
+    'login_with_google' => 'Prisijungti su Google',
+    'register_with_google' => 'Registruotis su Google',
+    'google_error' => 'Nepavyko prisijungti per Google. Bandyk dar kartą.',
+    'google_no_email' => 'Google nepateikė el. pašto adreso.',
+];

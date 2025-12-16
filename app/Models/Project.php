@@ -13,6 +13,10 @@ class Project extends Model
         'user_id',
         'title',
         'client_name',
+        'address',
+        'due_date',
+        'contact_phone',
+        'contact_email',
         'notes',
         'status'
     ];

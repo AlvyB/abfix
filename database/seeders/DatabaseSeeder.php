@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\RoomPresetSeeder;
+use Database\Seeders\ProjectsDemoSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,12 +18,20 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::firstOrCreate(
-            ['email' => 'test@example.com'],
+            ['email' => 'budrys.alvydas@gmail.com'],
             [
-                'name' => 'Test User',
-                'password' => 'password',
+                'name' => 'Alvydas',
+                'password' => 'Hipotermija1',
                 'email_verified_at' => now(),
             ]
         );
+
+        $this->call([
+            RoomPresetSeeder::class,
+            ProjectsDemoSeeder::class,
+            CompanySettingsSeeder::class,
+            WorkCatalogSeeder::class,
+            ProjectsUpdateSeeder::class,
+        ]);
     }
 }
