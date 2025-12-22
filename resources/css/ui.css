@@ -1,10 +1,7 @@
 /* Layout */
 .ui-bg {
     min-height: 100vh;
-    background:
-        radial-gradient(120% 120% at 15% 20%, rgba(106, 109, 255, 0.16), transparent 40%),
-        radial-gradient(120% 120% at 80% 0%, rgba(99, 201, 255, 0.16), transparent 40%),
-        var(--bg);
+    background: linear-gradient(180deg, #0a0a0a 0%, #0b0b0e 100%);
     color: var(--text);
     position: relative;
     padding-top: var(--nav-height);
@@ -31,9 +28,12 @@
     opacity: 0.45;
     pointer-events: none;
     z-index: 0;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0) 100%);
 }
 
 .ui-card {
+    /* Bendras kortelių fonas ir stiklo efektas */
     background: linear-gradient(160deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.15)), var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
@@ -42,16 +42,19 @@
 }
 
 .ui-brand-mark {
-    width: 52px;
-    height: 52px;
+    /* Kvadratinis logotipo blokas (raidė, gradientas) */
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
     background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
     color: var(--text);
     font-weight: 800;
     font-size: 1.35rem;
     display: grid;
     place-items: center;
     box-shadow: var(--primary-glow);
+    flex-shrink: 0;
 }
 
 .ui-muted {
@@ -59,6 +62,7 @@
 }
 
 .accent-text {
+    /* Teksto akcentas su gradientu */
     background: linear-gradient(135deg, var(--primary), var(--primary-strong));
     -webkit-background-clip: text;
     color: transparent;
@@ -67,6 +71,7 @@
 
 /* Form controls */
 .ui-input {
+    /* Bendra įvestis (naudojama formose) */
     width: 100%;
     background: var(--input-bg);
     border: 1px solid var(--input-border);
@@ -88,17 +93,18 @@
 }
 
 .ui-button-primary {
+    /* Pagrindinis mygtukas (bendras stilius) */
     width: 100%;
     border: 1px solid transparent;
-    border-radius: 0.95rem;
-    background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-    color: var(--primary-contrast);
+    border-radius: 0.rem;
+    background: var(--primary-strong);
+    color: #ffffff;
     padding: 0.65rem 1rem;
-    font-weight: 700;
+    font-weight: 200;
     font-size: 0.95rem;
     box-shadow: var(--primary-glow);
     transition: transform 0.12s ease, box-shadow 0.12s ease;
-    text-align: center;
+    text-align: centerl;
     text-decoration: none;
 }
 
@@ -111,8 +117,18 @@
 .ui-nav-actions .ui-button-primary,
 .ui-nav-actions .ui-button-ghost {
     width: auto;
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+.ui-nav-actions .ui-button-primary {
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    background: #5045e5;
+    color: #fff;
+    transition: background-color 0.15s ease, transform 0.12s ease;
+}
+.ui-nav-actions .ui-button-primary:hover {
+    background: #8d95ff;
 }
 
 .ui-button-primary:hover {
@@ -121,10 +137,10 @@
 }
 
 .ui-button-ghost {
+    /* Antrinis mygtukas (permatomas) */
     width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 0.95rem;
-    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0.6rem;
+
     color: var(--text);
     padding: 0.65rem 1rem;
     font-weight: 700;
@@ -194,6 +210,7 @@
 }
 
 .ui-nav {
+    /* Fiksuotas viršus su subtilia linija ir kompaktišku padding */
     position: fixed;
     top: 0;
     left: 0;
@@ -202,6 +219,10 @@
     z-index: 50;
     padding: 12px 0;
     isolation: isolate;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    opacity: 0;
+    transform: translateY(-110%);
+    animation: navDrop 0.5s ease-out forwards;
 }
 
 .ui-nav.scrolled {
@@ -225,9 +246,14 @@
     padding: 0 22px;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
     position: relative;
     z-index: 60;
+}
+
+@keyframes navDrop {
+    from { opacity: 0; transform: translateY(-110%); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .ui-nav .brand {
@@ -238,30 +264,61 @@
     color: var(--text);
 }
 
-.ui-nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.12s ease;
-}
-
-.ui-nav-links a:hover {
-    color: var(--text);
-}
-
 .ui-nav-links {
+    /* Centruotas meniu: smulkus šriftas ir tarpai tarp nuorodų */
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 2rem;
     margin-left: auto;
     margin-right: auto;
     color: var(--muted);
-    font-size: 0.9rem;
+    
+}
+
+.ui-nav-link {
+    /* Meniu nuorodų stilius */
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    letter-spacing: 0.05em;
+}
+
+.ui-nav-link:hover {
+    color: #ffffff;
 }
 
 .ui-nav-actions {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.ui-nav-actions .ui-button-ghost.ui-nav-link {
+    /* Login linkas nav juostoje */
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+.ui-nav-actions .ui-button-ghost.ui-nav-link:hover {
+    color: #ffffff;
+}
+.ui-nav-cta {
+    /* CTA mygtukas nav juostoje, naudoja pirmines spalvas */
+    padding: 0.5rem 1rem;
+    border-radius: 0.9rem;
+    font-size: 0.rem;
+    font-weight: 700;
+    background: var(--primary) !important;
+    color: #ffffff!important;
+    border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.15s ease, transform 0.12s ease;
+}
+.ui-nav-cta:hover {
+    background: #f2f4f7 !important;
 }
 
 .ui-nav-toggle {
@@ -290,40 +347,192 @@
 }
 
 .ui-hero {
+    /* Hero išdėstymas: centras, sumažintas viršutinis tarpas ir minimalus aukštis */
     text-align: center;
-    padding: 80px 0 60px;
+    padding: 80px 0 80px;
     display: grid;
-    gap: 16px;
+    gap: 18px;
     justify-items: center;
+    min-height: calc(100vh - var(--nav-height));
+    align-content: center;
 }
 
 .ui-hero h1 {
-    font-size: clamp(2.8rem, 5vw + 1rem, 5.2rem);
+    /* Hero H1: didelis, glaustas tarpas tarp eilučių */
+    font-size: clamp(2.6rem, 4.8vw + 1rem, 5.4rem);
     line-height: 1.1;
     font-weight: 800;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 1.6s ease forwards;
 }
 
 .ui-hero p {
     max-width: 760px;
 }
 
-.hero-form,
+.hero-fade {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: heroFade 1.1s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.hero-fade.delay-1 { animation-delay: 0.35s; }
+.hero-fade.delay-2 { animation-delay: 0.55s; }
+
+@keyframes heroFade {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    color: var(--text);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+.hero-form {
+    /* Hero formos dviejų stulpelių išdėstymas (el. paštas + CTA) */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    align-items: center;
+    gap: 12px;
+    width: min(640px, 100%);
+}
+
+.hero-input {
+    width: 100%;
+    height: 54px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 0 16px;
+    font-size: 0.95rem;
+    transition: border-color 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+}
+
+.hero-input::placeholder {
+    color: #6b7280;
+}
+
+.hero-input:focus {
+    outline: none;
+    border-color: rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hero-primary {
+    width: auto;
+    height: 54px;
+    border-radius: 16px;
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+    background: var(--button-bg);
+    color: var(--button-text-light);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+    box-shadow: var(--primary-glow);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    padding: 0 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.hero-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 28px 80px rgba(100, 110, 255, 0.4);
+    filter: brightness(1.02);
+}
+
+.hero-divider {
+    width: 90vw;
+    max-width: 900px;
+    height: 1px;
+    background: #1a1a1f;
+    margin: 12px auto 0;
+}
+
+.hero-demo {
+    /* Papildomas veiksmas (peržiūra) po formos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-demo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.hero-demo-link:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-meta {
+    /* Subtili meta eilutė su bullet separatoriais */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: color-mix(in srgb, var(--muted) 92%, transparent);
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 720px) {
+    .hero-form {
+        grid-template-columns: minmax(0, 1fr) max-content;
+    }
+    .hero-primary {
+        height: 52px;
+    }
+}
+
 .cta-form {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
-.hero-form .ui-input,
 .cta-form .ui-input {
     max-width: 340px;
 }
 
-.hero-form .ui-button-primary,
+.cta-form .ui-input {
+    flex: 1 1 340px;
+    min-width: 220px;
+}
+
 .cta-form .ui-button-primary,
-.hero-form .ui-button-ghost,
+.cta-form .ui-button-ghost {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.cta-form .ui-button-primary,
 .cta-form .ui-button-ghost {
     width: auto;
 }
@@ -332,7 +541,47 @@
     margin: 42px 0 20px;
 }
 
-.ui-section h2 {
+#features.ui-section {
+    margin-top: 96px;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 1.3s ease forwards;
+}
+
+.fade-up.delay-1 { animation-delay: 0.28s; }
+.fade-up.delay-2 { animation-delay: 0.56s; }
+.fade-up.delay-3 { animation-delay: 0.84s; }
+
+.fade-soft {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+    filter: blur(6px);
+    animation: fadeSoft 1.45s ease forwards;
+}
+
+.fade-soft.delay-0 { animation-delay: 0s; }
+.fade-soft.delay-1 { animation-delay: 0.32s; }
+.fade-soft.delay-2 { animation-delay: 0.64s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeSoft {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.ui-section h2:not([class]) {
     margin: 0 0 8px;
     text-align: center;
     font-size: 1.75rem;
@@ -346,19 +595,6 @@
     font-size: 0.95rem;
 }
 
-.ui-trust-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
 
 .ui-icon {
     width: 34px;
@@ -382,8 +618,8 @@
 }
 
 .demo-play {
-    background: #ff4b4b;
-    border-color: #ff4b4b;
+    background: #0b0f1d;
+    border-color: #0b0f1d;
     color: #fff;
 }
 
@@ -473,7 +709,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
         margin: 10px 0 0;
         background: rgba(10, 10, 11, 0.88);
         border: 1px solid var(--border);
@@ -489,7 +725,7 @@
     .ui-nav-links a,
     .ui-nav-links .ui-badge { width: 100%; }
     .ui-nav-links a {
-        padding: 10px 12px;
+        padding: 8px 12px;
         border-radius: 12px;
         border: 1px solid transparent;
     }
@@ -498,6 +734,5 @@
     .ui-nav.open .ui-nav-actions a { width: 100%; justify-content: center; }
     .ui-nav-actions { margin-left: 0; }
     .ui-hero { padding-top: 56px; }
-    .hero-form, .cta-form { flex-direction: column; align-items: stretch; }
-    .hero-input { width: 100%; }
+    .cta-form { flex-direction: row; align-items: center; }
 }

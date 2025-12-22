@@ -1,9 +1,40 @@
 # TO-DO
 
-- Dizaino suvienodinimas: sulyginti header/button stilių tarp edit/tasks/list, formų fonus ir padalų spalvas (šviesi/tamsi tema).
-- Migracijos/seederiai: paleisti `php artisan migrate` ir atitinkamus seederius (CompanySettingsSeeder, RoomPreset/Projects demo), patikrinti, kad status/comment migracija veikia.
-- PDF/eksportai: pridėti Excel eksportą, suvienodinti PDF tipų modalą visose vietose (edit/list), leisti naudoti nustatytą failo pavadinimo formatą iš PDF nustatymų.
-- Įmonės nustatymai: rodyti logotipo thumbnail iš storage, griežtesnė validacija pagal juridinį statusą (slėpti nereikalingus laukus, nusiųsti tik tikslius laukus), patikrinti failo ištrynimą.
-- Užduočių/projekto info inline redagavimas: pridėti vizualius toast/feedback, pagerinti validacijos klaidų rodymą.
-- Navigacija/UX: suderinti perėjimus (wire:navigate) ir sticky header elgesį visur, pridėti vienodą breadcrumbs stilių.
-- Filtrai/lentelės: standartizuoti lentelių stulpelių išdėstymą ir padding visose puslapio lentelėse (projektų sąrašas, kambarių pozicijos).
+- 💶 Kainodaros planas (DRAFT)
+    - 🟢 STARTER
+        - 0 € / mėn (testavimo laikotarpiu)
+        - Kam: solo meistrams ir pirmiems naudotojams
+        - Įtraukta:
+            - Iki 3 aktyvių projektų
+            - Darbų ir medžiagų sąmatos
+            - Automatinis sumų skaičiavimas
+            - PDF pasiūlymų eksportas (ribotas, pvz. iki 5 per mėn.)
+            - Klientų duomenys
+            - Projektų istorija
+        - Pastaba:
+            - Nemokama testavimo laikotarpiu. Be mokėjimo kortelės.
+    - 🔵 PRO ⭐ Populiariausias
+        - 19 € / mėn
+        - Kam: aktyviems meistrams ir smulkioms įmonėms
+        - Įtraukta:
+            - Neriboti projektai
+            - Neriboti PDF pasiūlymai ir sąskaitos
+            - Darbai + medžiagos + PVM
+            - Pasiūlymų ir sąmatų šablonai
+            - Projektų paieška ir filtrai
+            - Eksportas buhalterijai (PDF)
+        - Vertė:
+            - Sutaupo valandas kiekvienai sąmatai ir leidžia dirbti profesionaliai su klientais.
+    - 🟣 TEAM
+        - 29–39 € / mėn (galutinė kaina bus patikslinta)
+        - Kam: brigadoms ir rangovams
+        - Įtraukta:
+            - Keli vartotojai (pvz. 3–5)
+            - Prieigos teisės (kas ką mato)
+            - Bendri projektai
+            - Klientų ir objektų istorija
+            - Prioritetinis palaikymas
+    - 📌 Bendros sąlygos (rodyti po kainomis)
+        - Aiškios kainos. Jokių mokesčių už objektus ar dokumentus.
+        - Testavimo laikotarpiu – nemokamai.
+        - Mokėjimas taikomas vėliau, be netikėtumų.

@@ -21,7 +21,7 @@ return [
         'title_accent' => 'and proposals — fast.',
         'description' => 'Projects, work catalogs, room presets, and clean PDF offers with your company details — all in one place.',
         'email_placeholder' => 'Enter your email',
-        'cta' => 'Get early access',
+        'cta' => 'Try for free',
         'demo' => 'View demo',
         'trust_built' => 'Built for contractors & service businesses',
         'trust_eu' => 'EU-ready',
