@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ __('landing.meta.brand') }} — {{ __('landing.meta.title') }}</title>
+    <meta name="description" content="{{ __('landing.hero.description') }}">
+    <meta property="og:title" content="{{ __('landing.meta.brand') }} — {{ __('landing.meta.title') }}">
+    <meta property="og:description" content="{{ __('landing.hero.description') }}">
+    <meta property="og:type" content="website">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="ui-bg bg-grid">
@@ -44,16 +48,16 @@
     <div class="ui-container">
         <main class="space-y-8">
             {{-- Hero: pagrindinė žinutė su antrašte ir akcentuotu antro sakinio fragmentu --}}
-            <section class="px-6 pt-[140px] pb-10 md:pt-[180px] md:pb-12 min-h-screen flex flex-col justify-start">
+            <section class="px-6 pt-16 pb-10 md:pt-20 md:pb-12 min-h-screen flex flex-col justify-start">
                 <div class="max-w-5xl w-full mx-auto text-center space-y-4">
                     {{-- Dviejų eilučių H1 su <br> priverstiniu lūžiu ir akcentuota antra dalimi --}}
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white hero-fade">
                         Nuo užklausos iki PDF pasiūlymo<br><span class="bg-gradient-to-r from-indigo-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">ir sąskaitos — vienoje sistemoje.</span>
                     </h1>
                     {{-- Aprašas po H1, ribotas plotis dėl ilgesnio LT teksto --}}
-                    <h2 class="text-base sm:text-lg text-[#969da9] leading-relaxed max-w-3xl mx-auto hero-fade delay-1">
+                    <p class="text-base sm:text-lg text-[#969da9] leading-relaxed max-w-3xl mx-auto hero-fade delay-1">
                         Projektai, darbai, medžiagos ir automatinis PVM — PDF pasiūlymas per kelias minutes.
-                    </h2>
+                    </p>
                     <form class="hero-form mx-auto hero-fade delay-2" action="{{ route('register') }}" method="GET">
                         <input
                             name="email"

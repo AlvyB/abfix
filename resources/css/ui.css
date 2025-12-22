@@ -1,3 +1,7 @@
+:root {
+    --nav-height: 64px;
+}
+
 /* Layout */
 .ui-bg {
     min-height: 100vh;
@@ -96,15 +100,15 @@
     /* Pagrindinis mygtukas (bendras stilius) */
     width: 100%;
     border: 1px solid transparent;
-    border-radius: 0.rem;
+    border-radius: 0.9rem;
     background: var(--primary-strong);
     color: #ffffff;
     padding: 0.65rem 1rem;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 0.95rem;
     box-shadow: var(--primary-glow);
     transition: transform 0.12s ease, box-shadow 0.12s ease;
-    text-align: centerl;
+    text-align: center;
     text-decoration: none;
 }
 
@@ -125,6 +129,7 @@
     border-radius: 0.6rem;
     background: #5045e5;
     color: #fff;
+    font-weight: 600;
     transition: background-color 0.15s ease, transform 0.12s ease;
 }
 .ui-nav-actions .ui-button-primary:hover {
@@ -309,7 +314,7 @@
     /* CTA mygtukas nav juostoje, naudoja pirmines spalvas */
     padding: 0.5rem 1rem;
     border-radius: 0.9rem;
-    font-size: 0.rem;
+    font-size: 0.95rem;
     font-weight: 700;
     background: var(--primary) !important;
     color: #ffffff!important;
